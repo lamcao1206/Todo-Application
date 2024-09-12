@@ -1,6 +1,8 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "url";
+import mongoose from "mongoose";
+import taskRoute from "./routes/task.route.js";
 
 const app = express();
 
@@ -16,11 +18,15 @@ app.use(express.json());
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
 
+mongoose
+  .connect("mongodb://localhost:27017/todo_application")
+  .then(() => console.log("Connected to the todo_application database successfully"))
+  .catch((error) => console.error("Connection error:", error));
+
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+app.get("/", taskRoute);
+
 app.get("/test", (req, res) => {
   res.send("API work wells!");
 });

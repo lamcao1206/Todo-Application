@@ -41,12 +41,16 @@
         </div>
       </form>
       <h1 class="display-6">Tasks</h1>
+      <% if (tasks.length === 0) { %>
       <div class="card">
         <div class="card-body">
           <h5 class="card-title text-danger">No Tasks Available</h5>
           <p class="card-text">You have no tasks at the moment. Please add a new task.</p>
         </div>
       </div>
+      <% } else { %>
+      <!-- Render tasks here -->
+      <% } %>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
