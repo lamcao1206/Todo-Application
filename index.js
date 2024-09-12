@@ -25,7 +25,7 @@ mongoose
 
 const port = process.env.PORT || 3000;
 
-app.get("/", taskRoute);
+app.use("/", taskRoute);
 
 app.get("/test", (req, res) => {
   res.send("API work wells!");

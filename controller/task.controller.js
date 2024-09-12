@@ -10,6 +10,17 @@ const TaskController = {
       res.render("index", { tasks: [] });
     }
   },
+  addTask: async (req, res) => {
+    try {
+      const { description } = req.body;
+      const newTask = new Task({ description });
+      await newTask.save();
+      res.status(201).json(newTask);
+    } catch (error) {
+      console.error("Error adding task:", error);
+      res.status(500).send("Internal Server Error");
+    }
+  },
 };
 
 export default TaskController;
