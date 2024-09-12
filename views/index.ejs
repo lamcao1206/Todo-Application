@@ -14,6 +14,18 @@
       .container {
         width: 1000px;
       }
+      .btn-primary:hover {
+        background-color: #0056b3;
+        color: #ffffff;
+      }
+      .btn-icon {
+        display: flex;
+        align-items: center;
+      }
+      .btn-icon img {
+        margin-right: 5px;
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+      }
     </style>
   </head>
   <body>
@@ -22,7 +34,10 @@
       <form class="mt-4 mb-8">
         <div class="input-group mb-4">
           <input type="text" class="form-control" id="taskInput" placeholder="What are you planning to do ?" />
-          <button type="submit" class="btn btn-primary input-group-append">Add Task</button>
+          <button type="submit" class="btn btn-primary btn-icon input-group-append">
+            <img src="/add.svg" type="image/svg+xml" alt="Add" width="16" height="16" />
+            Add
+          </button>
         </div>
       </form>
       <h1 class="display-6">Tasks</h1>
